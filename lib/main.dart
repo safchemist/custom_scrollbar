@@ -1,4 +1,4 @@
-import 'package:custom_scrollbar/components/custom_scrollbar.dart';
+import 'package:custom_scrollbar/components/horizontal_scroll_bar.dart';
 import 'package:custom_scrollbar/components/list_item.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +30,7 @@ class _ScrollbarExampleState extends State<ScrollbarExample> {
   final smallListSize = 5;
   final bigListSize = 20;
   final floatButtonTooltip = 'Modify list';
+  var isVertical = true;
 
   @override
   void initState() {
@@ -53,9 +54,10 @@ class _ScrollbarExampleState extends State<ScrollbarExample> {
           color: Colors.purple.withOpacity(0.3),
         ),
       ),
-      body: CustomScrollbar(
+      body: HorizontalCustomScrollbar(
         controller: scrollController,
         child: CustomScrollView(
+          scrollDirection: Axis.horizontal,
           controller: scrollController,
           slivers: [
             SliverList(
